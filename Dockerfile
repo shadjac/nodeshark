@@ -1,22 +1,21 @@
-# v1 with USER node
-# v2 with USER root
-# v3 with ARG and ENV
 FROM node:10-alpine
 
-RUN mkdir -p /home/node/app
+RUN mkdir -p /home/node/app && chown -R node:node /home/node/app && chmod -R 700 /home/node/app
 
 WORKDIR /home/node/app
 
-COPY package*.json ./
+RUN apk add git
+
+RUN git clone https://github.com/shadjachaudhari13/nodeshark.git
+
+WORKDIR nodeshark
 
 RUN npm install
 
-COPY . .
+USER node
 
-ENV PORT 5000
+ENV PORT 8080
 
-ARG PORT=5000
-
-EXPOSE $PORT
+EXPOSE 8080
 
 CMD [ "node", "app.js" ]
