@@ -7,4 +7,8 @@ services:
     ports:
       - 8081:8888
     environment:
-      - PORT=8081
+      - PORT=8081 # over riding defaults in image.
+# over riding defaults does not mean changes are made to image.
+# copy-on-write
+# overriden changes go to thin writable layer attached to the container.
+    #command: sleep 300
