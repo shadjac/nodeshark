@@ -12,8 +12,8 @@ WORKDIR nodeshark
 
 RUN npm install
 
-ENV PORT 8080
+ENV PORT 5050
 
-EXPOSE 8080
+EXPOSE 5050
 
 CMD [ "node", "app.js" ]

@@ -5,9 +5,9 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 8081:8888
+      - 8080:5050
     environment:
-      - PORT=8081 # over riding defaults in image.
+      - PORT=5050 # over riding defaults in image.
 # over riding defaults does not mean changes are made to image.
 # copy-on-write
 # overriden changes go to thin writable layer attached to the container.
