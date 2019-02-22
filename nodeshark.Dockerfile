@@ -1,0 +1,19 @@
+FROM 192.168.1.188:5000/node:10-alpine
+
+WORKDIR /home/node/
+
+RUN apk add git
+
+USER node
+
+RUN git clone https://github.com/shadjachaudhari13/nodeshark.git
+
+WORKDIR nodeshark
+
+RUN npm install
+
+ENV PORT 8080
+
+EXPOSE 8080
+
+CMD [ "node", "app.js" ]
