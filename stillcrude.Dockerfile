@@ -1,8 +1,10 @@
-FROM 192.168.1.188:5000/node:10-alpine
+FROM 192.168.1.97:5000/node:10-alpine
 
-RUN mkdir /nodeshark && cd /nodeshark
+# not graceful
+#RUN mkdir /nodeshark && cd /nodeshark
 
-#WORKDIR /nodeshark
+# graceful
+WORKDIR /nodeshark
 
 COPY . .
 
@@ -10,4 +12,4 @@ ENV PORT 5050
 
 RUN npm install
 
-# why shoudn't I write RUN node app.js?
+CMD ["node","app.js"]
